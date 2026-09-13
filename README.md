@@ -16,6 +16,7 @@ Abre `http://localhost:3000`.
 ```bash
 pnpm typecheck
 pnpm lint
+pnpm test
 pnpm build
 ```
 
@@ -58,4 +59,10 @@ archivos:
 El progreso continúa guardándose localmente en el dispositivo mediante
 `localStorage`. No se sincroniza entre navegadores o dispositivos y puede
 perderse si se borran los datos de Safari.
+
+## Datos de orden de trazos
+
+Los vectores y el orden de trazos proceden de KanjiVG y se incluyen localmente
+para que la práctica funcione sin conexión. Consulta la fuente, licencia CC
+BY-SA 3.0 y requisitos de atribución en [`THIRD_PARTY_LICENSES.md`](./THIRD_PARTY_LICENSES.md).
 # Kaku

@@ -71,6 +71,17 @@ input, textarea, select { font-size: max(16px, 1em); }
   100% { transform: scale(1); opacity: 1; }
 }
 
+@keyframes stroke-order {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+.animate-stroke-order {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: stroke-order .62s cubic-bezier(.42, 0, .25, 1) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     scroll-behavior: auto !important;

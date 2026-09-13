@@ -1,7 +1,9 @@
-const CACHE_VERSION = "kana-shell-v3";
+const CACHE_VERSION = "kana-shell-v4";
 const SHELL_PAGES = [
   "/", "/learn", "/hiragana", "/hiragana/collection", "/practice",
   "/practice/write", "/progress",
+  ...Array.from({ length: 10 }, (_, index) => `/hiragana/unit/${index + 1}`),
+  ...Array.from({ length: 10 }, (_, index) => `/hiragana/unit/${index + 1}/write`),
 ];
 const STATIC_FILES = [
   "/offline.html", "/icons/kana-192.png", "/icons/kana-512.png",
