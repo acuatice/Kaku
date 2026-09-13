@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --kaku-purple: #37158f;
+  --electric-violet: #7657ff;
+  --yuzu: #f2ff47;
+  --sora: #76d9f7;
+  --momo: #f5b7d1;
+  --rice: #f7f6f1;
+  --sumi: #171719;
+  --success: #35c98f;
+  --error: #ff5f57;
+  --background: var(--rice);
+  --surface: #ffffff;
+  --foreground: var(--sumi);
+  --muted: #69666f;
+  --border: #dedce2;
+  --accent: var(--kaku-purple);
+  --accent-soft: #e9e3fb;
+  --space-page: 1.25rem;
+  --radius-control: 0.75rem;
+  --radius-button: 1.125rem;
+  --radius-card: 1.5rem;
+  --radius-hero: 2rem;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  min-height: 100%;
+  background: var(--kaku-purple);
+  scroll-padding-bottom: calc(8rem + env(safe-area-inset-bottom));
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-onest), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+  overscroll-behavior-y: none;
+}
+
+.font-japanese, :lang(ja) { font-family: var(--font-zen-kaku), var(--font-onest), sans-serif; }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+input, textarea, select { font-size: max(16px, 1em); }
+
+@media (hover: none) {
+  button:hover, a:hover { transform: none; }
+}
+
+:focus-visible { outline-color: var(--electric-violet); }
+
+::selection { background: var(--accent-soft); }
+
+@keyframes question-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes feedback-in {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes kaku-pop {
+  0% { transform: scale(.96); opacity: .65; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
