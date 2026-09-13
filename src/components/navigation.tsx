@@ -8,14 +8,14 @@ import { NazumoLogo } from "@/components/brand/nazumo-logo";
 
 const links = [
   { href: "/", label: "Inicio", icon: "home" as IconName },
-  { href: "/learn", label: "Aprender", icon: "learn" as IconName },
+  { href: "/hiragana", label: "Aprender", icon: "learn" as IconName },
   { href: "/practice", label: "Práctica", icon: "practice" as IconName },
   { href: "/progress", label: "Progreso", icon: "progress" as IconName },
 ];
 
 export function Navigation() {
   const pathname = usePathname();
-  const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href) || (href === "/learn" && pathname.startsWith("/hiragana"));
+  const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href) || (href === "/hiragana" && pathname.startsWith("/learn"));
   if (pathname.startsWith("/practice") || pathname.endsWith("/write")) return null;
   return <>
     <header className="flex h-20 items-center justify-between lg:h-24">
