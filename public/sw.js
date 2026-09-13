@@ -1,4 +1,4 @@
-const CACHE_VERSION = "kana-shell-v4";
+const CACHE_VERSION = "nazumo-shell-v5";
 const SHELL_PAGES = [
   "/", "/learn", "/hiragana", "/hiragana/collection", "/practice",
   "/practice/write", "/progress",
@@ -8,6 +8,8 @@ const SHELL_PAGES = [
 const STATIC_FILES = [
   "/offline.html", "/icons/kana-192.png", "/icons/kana-512.png",
   "/icons/kana-maskable-512.png",
+  "/brand/nazumo-logo.png", "/brand/nazumo-character.png",
+  "/brand/nazumo-hero.png", "/brand/nazumo-katakana.png", "/brand/nazumo-kanji.png",
 ];
 
 async function precacheShell() {

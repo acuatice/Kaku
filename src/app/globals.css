@@ -1,27 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --kaku-purple: #37158f;
-  --electric-violet: #7657ff;
-  --yuzu: #f2ff47;
-  --sora: #76d9f7;
-  --momo: #f5b7d1;
-  --rice: #f7f6f1;
-  --sumi: #171719;
+  --nazumo-purple: #4b18ad;
+  --nazumo-purple-deep: #301078;
+  --nazumo-lavender: #ddd0ff;
+  --nazumo-lime: #dcff35;
+  --nazumo-pink: #ffc9df;
+  --nazumo-cream: #faf8f2;
+  --nazumo-ink: #1d1b2d;
+  --kaku-purple: var(--nazumo-purple);
+  --electric-violet: #7350ee;
+  --yuzu: var(--nazumo-lime);
+  --sora: var(--nazumo-lavender);
+  --momo: var(--nazumo-pink);
+  --rice: var(--nazumo-cream);
+  --sumi: var(--nazumo-ink);
   --success: #35c98f;
   --error: #ff5f57;
   --background: var(--rice);
   --surface: #ffffff;
   --foreground: var(--sumi);
   --muted: #69666f;
-  --border: #dedce2;
+  --border: #e5e1ea;
   --accent: var(--kaku-purple);
-  --accent-soft: #e9e3fb;
+  --accent-soft: #eee8ff;
   --space-page: 1.25rem;
   --radius-control: 0.75rem;
-  --radius-button: 1.125rem;
-  --radius-card: 1.5rem;
-  --radius-hero: 2rem;
+  --radius-button: 999px;
+  --radius-card: 1.75rem;
+  --radius-hero: 2.25rem;
 }
 
 * { box-sizing: border-box; }
@@ -40,6 +47,7 @@ body {
   -webkit-font-smoothing: antialiased;
   min-height: 100dvh;
   overscroll-behavior-y: none;
+  text-rendering: optimizeLegibility;
 }
 
 .font-japanese, :lang(ja) { font-family: var(--font-zen-kaku), var(--font-onest), sans-serif; }
@@ -53,6 +61,10 @@ input, textarea, select { font-size: max(16px, 1em); }
 }
 
 :focus-visible { outline-color: var(--electric-violet); }
+
+.nazumo-shadow { box-shadow: 0 20px 55px rgba(52, 24, 114, .12); }
+.nazumo-purple-gradient { background: linear-gradient(155deg, #5c22c5 0%, #35107f 100%); }
+.nazumo-lavender-gradient { background: linear-gradient(145deg, #efeaff 0%, #d5c4ff 100%); }
 
 ::selection { background: var(--accent-soft); }
 

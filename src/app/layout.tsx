@@ -8,11 +8,11 @@ const onest = Onest({ subsets: ["latin"], variable: "--font-onest", display: "sw
 const zenKaku = Zen_Kaku_Gothic_New({ weight: ["400", "500", "700"], variable: "--font-zen-kaku", display: "swap", preload: false });
 
 export const metadata: Metadata = {
-  title: { default: "KAKU — Aprende japonés", template: "%s · KAKU" },
-  description: "Aprende japonés, trazo a trazo.",
-  applicationName: "Kana",
+  title: { default: "nazumo — Aprende japonés", template: "%s · nazumo" },
+  description: "Aprende japonés a tu ritmo, carácter a carácter.",
+  applicationName: "nazumo",
   manifest: "/manifest.webmanifest",
-  appleWebApp: { capable: true, title: "Kana", statusBarStyle: "black-translucent" },
+  appleWebApp: { capable: true, title: "nazumo", statusBarStyle: "black-translucent" },
   formatDetection: { telephone: false },
 };
 
@@ -20,7 +20,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#37158f",
+  themeColor: "#4b18ad",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

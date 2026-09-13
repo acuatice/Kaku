@@ -1,4 +1,4 @@
-# KAKU
+# nazumo
 
 Aplicación mobile-first para aprender japonés mediante reconocimiento, memoria y escritura. Construida con Next.js, React, TypeScript, Tailwind CSS y App Router.
 
@@ -36,9 +36,8 @@ el desarrollo local.
 Cuando cambie el contenido precacheado, incrementa `CACHE_VERSION` en
 `public/sw.js` para que las instalaciones existentes renueven el shell offline.
 
-Los iconos provisionales muestran `あ` sobre el color morado de KAKU. Para
-sustituirlos por el diseño definitivo, conserva los nombres y tamaños de estos
-archivos:
+Los iconos utilizan el personaje lineal de nazumo sobre el color morado de la
+marca. Para sustituirlos en el futuro, conserva los nombres y tamaños de estos archivos:
 
 - `src/app/favicon.ico`: favicon de 32 × 32 px.
 - `src/app/icon.png`: icono general de 192 × 192 px.
@@ -54,7 +53,7 @@ archivos:
 3. Mantén la configuración detectada para Next.js y pulsa **Deploy**.
 4. Abre la URL publicada desde Safari en el iPhone.
 5. Pulsa **Compartir**, elige **Añadir a pantalla de inicio** y confirma con
-   **Añadir**. Kana se abrirá después en una ventana independiente.
+   **Añadir**. nazumo se abrirá después en una ventana independiente.
 
 El progreso continúa guardándose localmente en el dispositivo mediante
 `localStorage`. No se sincroniza entre navegadores o dispositivos y puede
@@ -65,4 +64,3 @@ perderse si se borran los datos de Safari.
 Los vectores y el orden de trazos proceden de KanjiVG y se incluyen localmente
 para que la práctica funcione sin conexión. Consulta la fuente, licencia CC
 BY-SA 3.0 y requisitos de atribución en [`THIRD_PARTY_LICENSES.md`](./THIRD_PARTY_LICENSES.md).
-# Kaku

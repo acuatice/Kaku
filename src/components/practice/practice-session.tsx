@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef } from "react";
 import { RecognitionOptions } from "@/components/practice/recognition-options";
@@ -11,7 +12,6 @@ import type { KanaCharacter } from "@/lib/types";
 import type { PracticeCompletionResult } from "@/lib/practice/types";
 import { Button } from "@/components/ui/button";
 import { ExerciseFeedback } from "@/components/ui/exercise-feedback";
-import { Ten } from "@/components/brand/ten";
 
 interface PracticeSessionProps {
   characters?: readonly KanaCharacter[];
@@ -42,9 +42,9 @@ export function PracticeSession({ characters = hiraganaCharacters, sessionSize =
 
   if (practice.stage === "transition") {
     return (
-      <section className="w-full max-w-2xl rounded-[var(--radius-hero)] bg-white p-7 text-center sm:p-12">
+      <section className="w-full max-w-2xl rounded-[var(--radius-hero)] bg-white p-7 text-center nazumo-shadow sm:p-12">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--kaku-purple)]">Reconocimiento completado</p>
-        <Ten mood="happy" size={82} className="mx-auto my-8" />
+        <div className="relative mx-auto my-7 h-36 w-52 overflow-hidden"><Image src="/brand/nazumo-character.png" alt="Personaje de Nazumo celebrando" fill sizes="208px" className="object-cover object-bottom mix-blend-multiply" /></div>
         <h1 className="mx-auto max-w-lg text-3xl font-extrabold leading-tight tracking-[-0.04em] sm:text-4xl">¡Bien! Ahora vamos a recordarlos sin ayuda.</h1>
         <p className="mt-5 text-sm text-[var(--muted)]">Los mismos {practice.session.length} caracteres, en un orden nuevo.</p>
         <Button type="button" onClick={practice.beginTypingPhase} className="mt-9 w-full">Empezar recuerdo</Button>
@@ -58,7 +58,7 @@ export function PracticeSession({ characters = hiraganaCharacters, sessionSize =
     const totalCorrect = practice.recognitionScore + practice.typingScore;
     const accuracy = totalAnswers === 0 ? 0 : Math.round((totalCorrect / totalAnswers) * 100);
     return (
-      <section className="w-full max-w-2xl rounded-[var(--radius-hero)] bg-white p-7 text-center sm:p-12">
+      <section className="w-full max-w-2xl rounded-[var(--radius-hero)] bg-white p-7 text-center nazumo-shadow sm:p-12">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--kaku-purple)]">Sesión completada</p>
         <h1 className="mt-5 text-4xl font-extrabold tracking-[-0.045em] sm:text-5xl">Buen trabajo.</h1>
         <div className="my-7 grid gap-3 text-left min-[375px]:grid-cols-2 sm:my-9">
@@ -85,17 +85,17 @@ export function PracticeSession({ characters = hiraganaCharacters, sessionSize =
   const isRecognition = practice.stage === "recognition";
 
   return (
-    <section className="w-full max-w-2xl rounded-[var(--radius-hero)] bg-[var(--accent-soft)] p-4 min-[375px]:p-5 sm:p-9">
+    <section className="w-full max-w-2xl rounded-[var(--radius-hero)] bg-white p-4 min-[375px]:p-5 sm:p-9 sm:nazumo-shadow">
       <header>
         <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="text-sm font-semibold text-[var(--muted)] transition hover:text-[var(--sumi)] focus-visible:outline-2 focus-visible:outline-offset-4">Salir</Link>
+          <Link href="/" aria-label="Abandonar práctica" className="flex size-11 items-center justify-center rounded-full bg-[var(--background)] text-lg font-medium text-[var(--muted)] transition hover:text-[var(--sumi)] focus-visible:outline-2">×</Link>
           <div className="text-right"><p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--kaku-purple)]">{isRecognition ? "Reconocer" : "Recordar"}</p><p className="mt-1 text-sm tabular-nums text-[var(--muted)]">{practice.currentIndex + 1} / {practice.phaseItems.length}</p></div>
         </div>
-        <div className="mt-5 h-1 overflow-hidden rounded-full bg-neutral-100" role="progressbar" aria-valuemin={0} aria-valuemax={practice.phaseItems.length} aria-valuenow={answeredQuestions} aria-label={`Progreso de la fase ${isRecognition ? "de reconocimiento" : "de escritura"}`}><div className="h-full rounded-full bg-[var(--accent)] transition-[width] duration-300 ease-out" style={{ width: `${progress}%` }} /></div>
+        <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-[var(--accent-soft)]" role="progressbar" aria-valuemin={0} aria-valuemax={practice.phaseItems.length} aria-valuenow={answeredQuestions} aria-label={`Progreso de la fase ${isRecognition ? "de reconocimiento" : "de escritura"}`}><div className="h-full rounded-full bg-[var(--accent)] transition-[width] duration-300 ease-out" style={{ width: `${progress}%` }} /></div>
       </header>
 
-      <div key={`${practice.stage}:${current.id}`} className="animate-[question-in_.18s_ease-out] py-7 text-center min-[375px]:py-9 sm:py-14">
-        <p className="text-sm font-semibold text-[var(--muted)]">{isRecognition ? "¿Qué sonido es?" : "Escribe su lectura"}</p>
+      <div key={`${practice.stage}:${current.id}`} className="animate-[question-in_.18s_ease-out] py-8 text-center min-[375px]:py-10 sm:py-14">
+        <p className="text-sm font-bold text-[var(--sumi)]">{isRecognition ? "¿Cuál es su rōmaji?" : "Escribe su rōmaji"}</p>
         <div lang="ja" className="font-japanese mt-5 animate-[kaku-pop_.2s_ease-out] text-[8.5rem] font-medium leading-none tracking-[-0.08em] sm:text-[11rem]">{current.prompt}</div>
       </div>
 

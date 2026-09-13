@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { IconName } from "@/components/ui/icon";
 import { BottomNavigation } from "@/components/navigation/bottom-navigation";
+import { NazumoLogo } from "@/components/brand/nazumo-logo";
 
 const links = [
   { href: "/", label: "Inicio", icon: "home" as IconName },
@@ -15,13 +16,14 @@ const links = [
 export function Navigation() {
   const pathname = usePathname();
   const isActive = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href) || (href === "/learn" && pathname.startsWith("/hiragana"));
+  if (pathname.startsWith("/practice") || pathname.endsWith("/write")) return null;
   return <>
     <header className="flex h-20 items-center justify-between lg:h-24">
-      <Link href="/" className="flex items-baseline gap-2 text-xl font-extrabold tracking-[-0.06em]">kaku<span className="font-japanese text-xs font-medium tracking-normal text-[var(--kaku-purple)]">かく</span></Link>
-      <nav className="hidden items-center gap-1 rounded-2xl bg-white p-1.5 md:flex">
+      <Link href="/" aria-label="nazumo, inicio"><NazumoLogo /></Link>
+      <nav className="hidden items-center gap-1 rounded-full border border-black/[.04] bg-white p-1.5 shadow-sm md:flex">
         {links.map((link) => <Link key={link.href} href={link.href} className={`rounded-xl px-4 py-2 text-sm font-medium transition active:scale-[.98] ${isActive(link.href) ? "bg-[var(--kaku-purple)] text-white" : "text-[var(--muted)] hover:bg-[var(--rice)] hover:text-[var(--sumi)]"}`}>{link.label}</Link>)}
       </nav>
-      <span className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-[var(--muted)]">JA · ES</span>
+      <span className="flex size-10 items-center justify-center rounded-full bg-[var(--nazumo-lavender)] text-xs font-bold text-[var(--nazumo-purple)]" aria-label="Idioma: japonés y español">日</span>
     </header>
     <BottomNavigation items={links} isActive={isActive} />
   </>;
