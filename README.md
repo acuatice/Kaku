@@ -58,3 +58,4 @@ archivos:
 El progreso continúa guardándose localmente en el dispositivo mediante
 `localStorage`. No se sincroniza entre navegadores o dispositivos y puede
 perderse si se borran los datos de Safari.
+# Kaku
